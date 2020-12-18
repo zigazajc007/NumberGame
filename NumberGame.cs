@@ -1,10 +1,6 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Test
+namespace NumberGame
 {
     class Program
     {
@@ -53,7 +49,8 @@ namespace Test
         {
             Console.ForegroundColor = ConsoleColor.Green;
             Console.Write("Number of Players: ");
-            try{
+            try
+            {
                 number_of_players = Convert.ToInt16(Console.ReadLine());
             }
             catch (Exception)
@@ -82,12 +79,12 @@ namespace Test
             }
 
             Players();
- 
+
         }
 
         static void Players()
         {
-            players = new String[number_of_players+1];
+            players = new String[number_of_players + 1];
             numbers = new int[number_of_players + 1];
             scores = new int[number_of_players + 1];
 
@@ -106,7 +103,7 @@ namespace Test
 
                 Console.Write("Player {0}: ", i);
                 String player = Console.ReadLine().Trim();
-                if(player != "")
+                if (player != "")
                 {
                     players[i] = player;
                 }
@@ -135,7 +132,9 @@ namespace Test
                 try
                 {
                     number = Convert.ToInt16(Console.ReadLine());
-                }catch(Exception){
+                }
+                catch (Exception)
+                {
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("You must enter number between 1 and 1000!");
                     Console.ForegroundColor = ConsoleColor.Green;
@@ -143,7 +142,7 @@ namespace Test
                     continue;
                 }
 
-                if(number > 1000 || number < 1)
+                if (number > 1000 || number < 1)
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("You must enter number between 1 and 1000!");
@@ -182,7 +181,7 @@ namespace Test
                                 continue;
                             }
 
-                            if(num > 1000 || num < 1)
+                            if (num > 1000 || num < 1)
                             {
                                 Console.ForegroundColor = ConsoleColor.Red;
                                 Console.WriteLine("You must enter number between 1 and 1000!");
@@ -190,7 +189,7 @@ namespace Test
                                 continue;
                             }
 
-                            if(num == number)
+                            if (num == number)
                             {
                                 break;
                             }
@@ -200,17 +199,17 @@ namespace Test
                                 Console.WriteLine(players[i] + "'s number is Lower!");
                                 scores[j] = scores[j] + (num - number);
                             }
-                            else if(num < number)
+                            else if (num < number)
                             {
 
                                 Console.ForegroundColor = ConsoleColor.Green;
                                 Console.WriteLine(players[i] + "'s number is Higher!");
                                 scores[j] = scores[j] + (number - num);
                             }
- 
+
                         }
                         Console.ForegroundColor = ConsoleColor.Green;
-                        Console.WriteLine("\nCongratulations " + players[j] +" you just find " + players[i] + "'s \nsecret number and earn " + scores[j] + " score!");
+                        Console.WriteLine("\nCongratulations " + players[j] + " you just find " + players[i] + "'s \nsecret number and earn " + scores[j] + " score!");
                         Console.ReadKey();
                         Title();
                     }
@@ -225,16 +224,16 @@ namespace Test
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("\t\t---------------------------");
             Console.ForegroundColor = ConsoleColor.Blue;
-            Console.WriteLine("\t\t\t   Score");
+            Console.WriteLine("\t\t\t Score");
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("\t\t---------------------------\n\n\n\n\n");
 
-            Console.WriteLine("\t\t     PLAYER\t|SCORE");
-            Console.WriteLine("\t\t     ____________________");
+            Console.WriteLine("\t\t PLAYER\t|SCORE");
+            Console.WriteLine("\t\t ____________________");
             for (int i = 1; i <= number_of_players; i++)
             {
-                Console.WriteLine("\t\t     "+players[i]+"\t|"+scores[i]);
-                Console.WriteLine("\t\t     ____________________");
+                Console.WriteLine("\t\t " + players[i] + "\t|" + scores[i]);
+                Console.WriteLine("\t\t ____________________");
             }
             Console.ReadLine();
             Main(null);
